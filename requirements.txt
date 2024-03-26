@@ -7,4 +7,5 @@ flask                          # Framework to create a user interface (presumabl
 faiss-cpu                      # Vector Database, likely used for efficient similarity search or clustering of embeddings
 zenml
 langchain
+python-dotenv
 -e .
