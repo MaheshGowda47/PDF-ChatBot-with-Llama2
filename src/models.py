@@ -1,10 +1,13 @@
 import os
-from dotenv import load
+from dotenv import load_dotenv
+load_dotenv()
 
 import logging
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.llms import CTransformers
 from zenml import step
+
+HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 
 @step
 def embedding():
@@ -30,7 +33,7 @@ def llm_model():
 
     return llm
 
-if __name__ == "__main__":
-    embedding = embedding()
-    llm = llm_model()
-    print(embedding, llm)
+# if __name__ == "__main__":
+#     embedding = embedding()
+#     llm = llm_model()
+#     print(embedding, llm)
