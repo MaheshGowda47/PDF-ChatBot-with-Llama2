@@ -1,9 +1,9 @@
 langchain==0.0.225             # Framework to create GAI (General Artificial Intelligence) applications
 ctransformers==0.2.5           # used to call quantization models from HuggingFace
 sentence-transformers==2.2.2   # Used to call embidding model from HuggingFace
-zenml[server]==0.56.1          # Used to create pipelines, for GAI workflows 
+zenml[server]==0.56.1         # Used to create pipelines, for GAI workflows 
 pypdf                          # Used to load PDF files
 flask                          # Framework to create a user interface (presumably web-based)
 faiss-cpu                      # Vector Database, likely used for efficient similarity search or clustering of embeddings
-
+zenml
 -e .
