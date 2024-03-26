@@ -6,4 +6,5 @@ pypdf                          # Used to load PDF files
 flask                          # Framework to create a user interface (presumably web-based)
 faiss-cpu                      # Vector Database, likely used for efficient similarity search or clustering of embeddings
 zenml
+langchain
 -e .
