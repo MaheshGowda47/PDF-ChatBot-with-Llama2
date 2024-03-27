@@ -3,8 +3,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import logging
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.llms import CTransformers
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.llms import CTransformers
 from zenml import step
 
 HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
@@ -31,9 +31,4 @@ def llm_model():
     if not llm:
         logging.warning("Problem in loading Llma model from Directory")
 
-    return llm
-
-# if __name__ == "__main__":
-#     embedding = embedding()
-#     llm = llm_model()
-#     print(embedding, llm)
+    return llm  
