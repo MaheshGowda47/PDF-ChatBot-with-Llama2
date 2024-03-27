@@ -5,7 +5,9 @@ from source.models import llm_model, embedding
 from source.prompt import prompt
 from source.run_chain import chain
 
+from zenml import pipeline
 
+@pipeline
 def run_pipeline():
     loaded_data = Data("data").load()
     print("Loaded data:", loaded_data)
@@ -23,5 +25,5 @@ def run_pipeline():
     run_chain = chain(llm, vector_store, qa_prompt)
     return run_chain
 
-if __name__ == "__main__":
-    print(run_pipeline())
+# if __name__ == "__main__":
+#     print(run_pipeline())
