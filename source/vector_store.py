@@ -2,8 +2,8 @@ import logging
 from langchain_community.vectorstores import FAISS
 from zenml import step 
 
-from create_chunk import chunks
-from models import embedding
+from source.create_chunk import chunks
+from source.models import embedding
 
 @step
 class DataBase:

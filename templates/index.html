@@ -1,20 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Welcome Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="color: rgb(255, 0, 0)">PDF ChatBot with Llma2</title>
     <style>
         body {
-            background-image: url("Extra_work\img.png"); 
-            background-color: #f0f0f0; /* Light color for the background */
-            background-size: cover; /* Ensure the image covers the entire background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://source.unsplash.com/1600x900/?ai') repeat;
+            animation: color-change 10s infinite;
         }
+
+        @keyframes color-change {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            position: relative; /* Adding relative positioning for the Mahesh Gowda text */
+        }
+
         h1 {
             text-align: center;
-            color: blue;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 70px);
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50px; /* Making the button round */
+            cursor: pointer;
+            font-size: 16px;
+            animation: pulse 2s infinite; /* Adding animation to the button */
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #response-container {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            min-height: 50px;
+        }
+
+        #mahesh-gowda {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-family: 'Pacifico', cursive; /* Using Google Font 'Pacifico' for Mahesh Gowda */
+            font-size: 24px;
+            animation: slide 2s infinite alternate;
+        }
+
+        @keyframes slide {
+            0% { left: -100px; }
+            100% { left: 10px; }
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to my Home page</h1>
+    <div class="container">
+        <div id="mahesh-gowda">Mahesh Gowda</div>
+        <h1>Chatbot</h1>
+        <form id="chat-form">
+            <input type="text" id="user-input" name="question" placeholder="Type your question...">
+            <button type="submit">Send</button>
+        </form>
+        <div id="response-container"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#chat-form').submit(function(event) {
+                event.preventDefault();
+                var formData = $(this).serialize();
+                // Unique loading animation while waiting for response
+                $('#response-container').html('<p style="text-align:center;"><img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..."></p>');
+                $.ajax({
+                    type: 'POST',
+                    url: '/chatbot',
+                    data: formData,
+                    success: function(response) {
+                        $('#response-container').html('<p>' + response.response + '</p>');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

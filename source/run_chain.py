@@ -2,12 +2,12 @@ import logging
 from langchain.chains import RetrievalQA
 from zenml import step, pipeline
 
-from models import llm_model
-from vector_store import DataBase
-from prompt import prompt
+from source.vector_store import DataBase
+from source.prompt import prompt
+from source.models import llm_model
 
 @step
-class chain:
+class chain_link:
     def __init__(self) -> None:
         self.llm = llm_model()
         self.vector_store = DataBase()
@@ -21,9 +21,6 @@ class chain:
             return_source_documents=False,
             chain_type_kwargs={'prompt': self.qa_prompt}
         )
-
-
+        
         return chain
-    
-
 

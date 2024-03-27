@@ -2,7 +2,7 @@ import logging
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from zenml import step 
 
-from load_data import Data
+from source.load_data import Data
 
 @step
 class chunks:
