@@ -4,8 +4,8 @@ from zenml import step
 
 @step
 class Data:
-    def __init__(self, data_path) -> None:
-        self.data_path = data_path
+    def __init__(self) -> None:
+        self.data_path = "data"
 
     def load(self):
         loader = DirectoryLoader(self.data_path, glob="*.pdf", loader_cls=PyPDFLoader)

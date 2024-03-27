@@ -7,13 +7,13 @@ from source.run_chain import chain
 
 from zenml import pipeline
 
-@pipeline
+# @pipeline
 def run_pipeline():
     loaded_data = Data("data").load()
-    print("Loaded data:", loaded_data)
+    # print("Loaded data:", loaded_data)
 
     chunk = chunks(loaded_data).load()
-    print("Created chunks:", chunk)
+    # print("Created chunks:", chunk)
 
     embeddings = embedding()
 
@@ -27,3 +27,5 @@ def run_pipeline():
 
 # if __name__ == "__main__":
 #     print(run_pipeline())
+
+# Dont run this file changes have maded
