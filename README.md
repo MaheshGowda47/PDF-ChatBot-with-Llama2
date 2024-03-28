@@ -1,7 +1,10 @@
-## **PDF-ChatBot-with-Llama2**
+#                                       **PDF-ChatBot-with-Llama2**
+-----------------------------------------------------------------------------------------------------------------------
 
-
-    The PDF chatbot is a cutting-edge application developed using state-of-the-art natural language processing (NLP) technologies and frameworks. The chatbot leverages Llama2, a powerful language model, and Hugging Face embeddings to understand and generate text responses effectively. It is integrated into a web interface using Flask, providing users with easy access through a browser.
+    The PDF chatbot is a cutting-edge application developed using state-of-the-art natural language processing (NLP)
+technologies and frameworks. The chatbot leverages Llama2, a powerful language model, and Hugging Face embeddings to  
+understand and generate text responses effectively. It is integrated into a web interface using Flask, providing 
+users with easy access through a browser.
 
 **Key Components:**
 
